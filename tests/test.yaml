@@ -32,14 +32,6 @@
         that:
           - zookeeper_service_zookeeper
 
-    - name: Ensure zookeeper_user_name is zookeeper.
-      shell: /usr/bin/getent passwd zookeeper
-      tags: skip_ansible_lint
-
-    - name: Ensure zookeeper_user_group is zookeeper.
-      shell: /usr/bin/getent group zookeeper
-      tags: skip_ansible_lint
-
     - name: Ensure zookeeper is running.
       become: yes
       shell: /usr/sbin/service zookeeper status

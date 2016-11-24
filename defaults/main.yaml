@@ -18,13 +18,6 @@ zookeeper_task_manager:
   - service
 
 # tasks/install.yaml
-zookeeper_git_dest: /opt/ansible-role-zookeeper/git/pypa/zookeeper
-zookeeper_git_uri: git://git.apache.org/zookeeper.git
-zookeeper_git_version: master
-
-zookeeper_get_url_dest: /opt/ansible-role-zookeeper/tarball/
-zookeeper_get_url_url: http://apache.org/dist/zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz
-
 zookeeper_package_name: zookeeperd
 zookeeper_package_state: installed
 
