@@ -15,11 +15,17 @@
 - name: Create directory for get_url.
   become: yes
   file:
-    dest: "{{ zookeeper_get_url_dest }}"
+    dest: "{{ zookeeper_tarball_dest }}"
     state: directory
 
 - name: Download zookeeper tarball.
   become: yes
   get_url:
-    dest: "{{ zookeeper_get_url_dest }}"
-    url: "{{ zookeeper_get_url_url }}"
+    dest: "{{ zookeeper_tarball_dest }}"
+    url: "{{ zookeeper_tarball_url }}{{ zookeeper_tarball_name }}"
+
+- name: Extract zookeeper tarball.
+  become: yes
+  unarchive:
+    src: "{{ zookeeper_tarball_dest }}{{ zookeeper_tarball_name }}"
+    dest: "{{ zookeeper_tarball_dest }}"
