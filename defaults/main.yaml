@@ -15,10 +15,17 @@
 # tasks/main.yaml
 zookeeper_task_manager:
   - install
+  - config
   - service
 
+# tasks/config.yaml
+zookeeper_file_zoo_conf_dest: /etc/zookeeper/zoo.cfg
+zookeeper_file_zoo_conf_group: zookeeper
+zookeeper_file_zoo_conf_mode: 0644
+zookeeper_file_zoo_conf_owner: zookeeper
+zookeeper_file_zoo_conf_src: etc/zookeeper/zoo.cfg
+
 # tasks/install.yaml
-zookeeper_package_name: zookeeperd
 zookeeper_package_state: installed
 
 zookeeper_install_method: package

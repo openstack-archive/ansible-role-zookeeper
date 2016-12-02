@@ -12,13 +12,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 ---
-- name: Define zookeeper_package_name
-  set_fact:
-    zookeeper_package_name: "{{ __zookeeper_package_name }}"
-  when: zookeeper_package_name is not defined
-
-- name: Ensure zookeeper is installed.
+- name: Install zookeeper configuration.
   become: yes
-  package:
-    name: "{{ zookeeper_package_name }}"
-    state: "{{ zookeeper_package_state }}"
+  template:
+    dest: "{{ zookeeper_file_zoo_conf_dest }}"
+    group: "{{ zookeeper_file_zoo_conf_group }}"
+    mode: "{{ zookeeper_file_zoo_conf_mode }}"
+    owner: "{{ zookeeper_file_zoo_conf_owner }}"
+    src: "{{ zookeeper_file_zoo_conf_src }}"
+  register: zookeeper_file_zoo_conf
