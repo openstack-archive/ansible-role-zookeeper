@@ -18,7 +18,6 @@ zookeeper_task_manager:
   - service
 
 # tasks/install.yaml
-zookeeper_package_name: zookeeperd
 zookeeper_package_state: installed
 
 zookeeper_install_method: package

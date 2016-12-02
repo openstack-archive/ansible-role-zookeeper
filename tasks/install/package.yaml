@@ -12,6 +12,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 ---
+- name: Define zookeeper_package_name
+  set_fact:
+    nodepool_build_depends: "{{ __zookeeper_package_name }}"
+  when: zookeeper_package_name is not defined
+
 - name: Ensure zookeeper is installed.
   become: yes
   package:
