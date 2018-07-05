@@ -19,11 +19,22 @@ zookeeper_task_manager:
   - service
 
 # tasks/config.yaml
+zookeeper_cluster_members: "{{ groups['zookeeper_all'] }}"
+zookeeper_cluster_id: >-
+  {%- for member in zookeeper_cluster_members -%}
+    {%- if hostvars[member]['ansible_host'] == ansible_host -%}
+    {{loop.index}}
+    {%- endif -%}
+  {%- endfor -%}
+
 zookeeper_file_zoo_conf_dest: /etc/zookeeper/zoo.cfg
+zookeeper_file_myid_dest: /etc/zookeeper/myid
 zookeeper_file_zoo_conf_group: zookeeper
 zookeeper_file_zoo_conf_mode: 0644
 zookeeper_file_zoo_conf_owner: zookeeper
 zookeeper_file_zoo_conf_src: etc/zookeeper/zoo.cfg
+zookeeper_data_dir: /var/lib/zookeeper/data
+zookeeper_log_dir: /var/lib/zookeeper/log
 
 # tasks/install.yaml
 zookeeper_package_state: installed

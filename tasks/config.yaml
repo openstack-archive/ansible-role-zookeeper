@@ -21,3 +21,14 @@
     owner: "{{ zookeeper_file_zoo_conf_owner }}"
     src: "{{ zookeeper_file_zoo_conf_src }}"
   register: zookeeper_file_zoo_conf
+  notify: Restart zookeeper
+
+- name: Setting cluster id
+  become: yes
+  copy:
+    dest: "{{ zookeeper_file_myid_dest }}"
+    group: "{{ zookeeper_file_zoo_conf_group }}"
+    mode: "{{ zookeeper_file_zoo_conf_mode }}"
+    owner: "{{ zookeeper_file_zoo_conf_owner }}"
+    content: "{{ zookeeper_cluster_id }}"
+  notify: Restart zookeeper
