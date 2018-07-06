@@ -16,7 +16,6 @@
 zookeeper_task_manager:
   - install
   - config
-  - service
 
 # tasks/config.yaml
 zookeeper_cluster_members: "{{ groups['zookeeper_all']|default(groups['all']) }}"
@@ -41,7 +40,7 @@ zookeeper_file_myid_dest: "{{ zookeeper_data_dir }}/myid"
 zookeeper_package_state: present
 
 
-# tasks/service.yaml
+# hadlers/main.yml
 zookeeper_service_zookeeper_enabled: yes
 zookeeper_service_zookeeper_manage: true
-zookeeper_service_zookeeper_state: started
+zookeeper_service_zookeeper_state: restarted

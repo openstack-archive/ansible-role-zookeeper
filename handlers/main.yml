@@ -1,9 +1,10 @@
 ---
+- name: Init database
+  command: "service {{ zookeeper_service_zookeeper_name }} init"
+
 - name: Restart zookeeper
   service:
     name: "{{ zookeeper_service_zookeeper_name }}"
     enabled: "{{ zookeeper_service_zookeeper_enabled }}"
-    state: restarted
-
-- name: Init database
-  command: "service {{ zookeeper_service_zookeeper_name }} init"
+    state: "{{ zookeeper_service_zookeeper_state }}"
+  when: zookeeper_service_zookeeper_manage

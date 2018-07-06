@@ -27,12 +27,7 @@
     - "{{ rolename }}"
 
   post_tasks:
-    - name: Assert results are registered.
-      assert:
-        that:
-          - zookeeper_service_zookeeper
-
     - name: Ensure zookeeper is running.
       become: yes
-      shell: /usr/sbin/service zookeeper status
+      shell: /usr/sbin/service "{{ zookeeper_service_zookeeper_name }}" status
       tags: skip_ansible_lint
