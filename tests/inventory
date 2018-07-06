@@ -1,2 +1,11 @@
 [all]
 localhost
+
+[all_containers:children]
+zookeeper_container
+
+[zookeeper_container]
+localhost
+
+[zookeeper_all:children]
+zookeeper_container
