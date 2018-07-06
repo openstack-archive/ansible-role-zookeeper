@@ -12,4 +12,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 ---
-__zookeeper_package_name: zookeeper
+__zookeeper_package_name: zookeeper-server
+zookeeper_service_zookeeper_name: zookeeper-server
+zookeeper_external_repo: https://archive.cloudera.com/cdh5/redhat/7/x86_64/cdh/cloudera-cdh5.repo

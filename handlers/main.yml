@@ -4,3 +4,6 @@
     name: "{{ zookeeper_service_zookeeper_name }}"
     enabled: "{{ zookeeper_service_zookeeper_enabled }}"
     state: restarted
+
+- name: Init database
+  command: "service {{ zookeeper_service_zookeeper_name }} init"
