@@ -21,3 +21,13 @@
     owner: "{{ zookeeper_file_zoo_conf_owner }}"
     src: "{{ zookeeper_file_zoo_conf_src }}"
   register: zookeeper_file_zoo_conf
+
+- name: Install zookeeper myid.
+  become: yes
+  template:
+    dest: "{{ zookeeper_file_myid_dest }}"
+    group: "{{ zookeeper_file_myid_group }}"
+    mode: "{{ zookeeper_file_myid_mode }}"
+    owner: "{{ zookeeper_file_myid_owner }}"
+    src: "{{ zookeeper_file_myid_src }}"
+  register: zookeeper_file_myid

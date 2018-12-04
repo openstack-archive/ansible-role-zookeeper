@@ -19,6 +19,10 @@ zookeeper_task_manager:
   - service
 
 # tasks/config.yaml
+zookeeper_file_myid_group: zookeeper
+zookeeper_file_myid_mode: 0644
+zookeeper_file_myid_owner: zookeeper
+
 zookeeper_file_zoo_conf_group: zookeeper
 zookeeper_file_zoo_conf_mode: 0644
 zookeeper_file_zoo_conf_owner: zookeeper

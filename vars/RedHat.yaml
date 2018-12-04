@@ -14,6 +14,10 @@
 ---
 __zookeeper_package_name: zookeeper
 
+zookeeper_file_myid_dest: /var/lib/zookeeper/data
+# NOTE(pabelanger): Avoid creating a symlink, and point to Debian version.
+zookeeper_file_myid_src: etc/zookeeper/conf/myid
+
 zookeeper_file_zoo_conf_dest: /etc/zookeeper/zoo.cfg
 # NOTE(pabelanger): Avoid creating a symlink, and point to Debian version.
 zookeeper_file_zoo_conf_src: etc/zookeeper/conf/zoo.cfg

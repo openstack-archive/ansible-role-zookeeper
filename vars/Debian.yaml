@@ -27,5 +27,8 @@
 ---
 __zookeeper_package_name: zookeeperd
 
+zookeeper_file_myid_dest: /etc/zookeeper/conf/myid
+zookeeper_file_myid_src: etc/zookeeper/conf/myid
+
 zookeeper_file_zoo_conf_dest: /etc/zookeeper/conf/zoo.cfg
 zookeeper_file_zoo_conf_src: etc/zookeeper/conf/zoo.cfg
