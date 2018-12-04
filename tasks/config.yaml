@@ -12,15 +12,25 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 ---
-- name: Install zookeeper configuration.
-  become: yes
-  template:
-    dest: "{{ zookeeper_file_zoo_conf_dest }}"
-    group: "{{ zookeeper_file_zoo_conf_group }}"
-    mode: "{{ zookeeper_file_zoo_conf_mode }}"
-    owner: "{{ zookeeper_file_zoo_conf_owner }}"
-    src: "{{ zookeeper_file_zoo_conf_src }}"
-  register: zookeeper_file_zoo_conf
+- name: Define zookeeper_file_myid_dest
+  set_fact:
+    zookeeper_file_myid_dest: "{{ __zookeeper_file_myid_dest }}"
+  when: zookeeper_file_myid_dest is not defined
+
+- name: Define zookeeper_file_myid_src
+  set_fact:
+    zookeeper_file_myid_src: "{{ __zookeeper_file_myid_src }}"
+  when: zookeeper_file_myid_src is not defined
+
+- name: Define zookeeper_file_zoo_conf_dest
+  set_fact:
+    zookeeper_file_zoo_conf_dest: "{{ __zookeeper_file_zoo_conf_dest }}"
+  when: zookeeper_file_zoo_conf_dest is not defined
+
+- name: Define zookeeper_file_zoo_conf_src
+  set_fact:
+    zookeeper_file_zoo_conf_src: "{{ __zookeeper_file_zoo_conf_src }}"
+  when: zookeeper_file_zoo_conf_src is not defined
 
 - name: Install zookeeper myid.
   become: yes
@@ -31,3 +41,13 @@
     owner: "{{ zookeeper_file_myid_owner }}"
     src: "{{ zookeeper_file_myid_src }}"
   register: zookeeper_file_myid
+
+- name: Install zookeeper configuration.
+  become: yes
+  template:
+    dest: "{{ zookeeper_file_zoo_conf_dest }}"
+    group: "{{ zookeeper_file_zoo_conf_group }}"
+    mode: "{{ zookeeper_file_zoo_conf_mode }}"
+    owner: "{{ zookeeper_file_zoo_conf_owner }}"
+    src: "{{ zookeeper_file_zoo_conf_src }}"
+  register: zookeeper_file_zoo_conf
