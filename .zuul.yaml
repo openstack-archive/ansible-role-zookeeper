@@ -15,25 +15,17 @@
     parent: ansible-role-zookeeper
     nodeset: ubuntu-bionic
 
-- job:
-    name: ansible-role-zookeeper-ubuntu-xenial
-    parent: ansible-role-zookeeper
-    nodeset: ubuntu-xenial
-
 - project:
     templates:
       - windmill-jobs-fedora-latest
       - windmill-jobs-bionic
-      - windmill-jobs-xenial
     check:
       jobs:
         - ansible-role-zookeeper-fedora-latest
         - ansible-role-zookeeper-ubuntu-bionic
-        - ansible-role-zookeeper-ubuntu-xenial
         - tox-linters
     gate:
       jobs:
         - ansible-role-zookeeper-fedora-latest
         - ansible-role-zookeeper-ubuntu-bionic
-        - ansible-role-zookeeper-ubuntu-xenial
         - tox-linters
