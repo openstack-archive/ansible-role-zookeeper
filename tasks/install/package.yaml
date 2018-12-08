@@ -17,7 +17,7 @@
     zookeeper_package_name: "{{ __zookeeper_package_name }}"
   when: zookeeper_package_name is not defined
 
-- name: Ensure zookeeper is installed.
+- name: Ensure zookeeper is present
   become: yes
   package:
     name: "{{ zookeeper_package_name }}"

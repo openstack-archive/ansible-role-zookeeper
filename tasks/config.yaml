@@ -32,7 +32,7 @@
     zookeeper_file_zoo_conf_src: "{{ __zookeeper_file_zoo_conf_src }}"
   when: zookeeper_file_zoo_conf_src is not defined
 
-- name: Install zookeeper myid.
+- name: Install zookeeper myid
   become: yes
   template:
     dest: "{{ zookeeper_file_myid_dest }}"
@@ -42,7 +42,7 @@
     src: "{{ zookeeper_file_myid_src }}"
   register: zookeeper_file_myid
 
-- name: Install zookeeper configuration.
+- name: Install zookeeper configuration
   become: yes
   template:
     dest: "{{ zookeeper_file_zoo_conf_dest }}"

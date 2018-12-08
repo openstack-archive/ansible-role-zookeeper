@@ -28,7 +28,7 @@ zookeeper_file_zoo_conf_mode: 0644
 zookeeper_file_zoo_conf_owner: zookeeper
 
 # tasks/install.yaml
-zookeeper_package_state: installed
+zookeeper_package_state: present
 
 zookeeper_install_method: package
 
