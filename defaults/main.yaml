@@ -41,3 +41,6 @@ zookeeper_service_zookeeper_state: started
 # autopurge
 zookeeper_snap_retain_count: 3
 zookeeper_purge_interval: 0
+
+# cluster section
+zookeeper_cluster_members: "{{ groups['zookeeper_all']|default([]) }}"
