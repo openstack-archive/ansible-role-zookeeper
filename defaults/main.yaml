@@ -37,3 +37,7 @@ zookeeper_service_zookeeper_enabled: yes
 zookeeper_service_zookeeper_manage: true
 zookeeper_service_zookeeper_name: zookeeper
 zookeeper_service_zookeeper_state: started
+
+# autopurge
+zookeeper_snap_retain_count: 3
+zookeeper_purge_interval: 0
